@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+        
+<ui:composition template="ui.xhtml">
+    <f:metadata>
+        <f:viewParam name="id" value="#{productController.product.id}"/>
+        <f:viewAction action="#{productController.getProductById}"/>
+    </f:metadata>
+    
+<ui:define name="title">Product Details</ui:define>
+
+<ui:define name="header">Requested Product: “#{productController.product.model}”!</ui:define>
+
+<ui:define name="content">    
+    <h2>Detail Informations</h2>
+    <h:form>
+        <h:panelGrid columns="2">
+            <h:outputLabel value="ID:"/>
+            <h:outputLabel value="#{productController.product.id}"/>
+
+            <h:outputLabel value="Brand:"/>
+            <h:outputLabel value="#{productController.product.brand}"/>
+            
+            <h:outputLabel value="Model:"/>
+            <h:outputLabel value="#{productController.product.model}"/>
+
+            <h:outputLabel value="Size of display:"/>
+            <h:outputLabel value="#{productController.product.sizeOfDisplay}"/>
+            
+            <h:outputLabel value="Weight:"/>
+            <h:outputLabel value="#{productController.product.weight}"/> 
+            
+            <h:outputLabel value="Operating system:"/>
+            <h:outputLabel value="#{productController.product.os}"/>
+
+            <h:outputLabel value="Camera:"/>
+            <h:outputLabel value="#{productController.product.camera}"/>
+            
+            <h:outputLabel value="Wifi:"/>
+            <h:outputLabel value="#{productController.product.wifi}"/>
+
+            <h:outputLabel value="Price:"/>
+            <h:outputLabel value="$#{productController.product.price}"/>
+            
+            <h:outputLabel value="Type:"/>
+            <h:outputLabel value="#{productController.product.type}"/>
+            
+            <h:outputLabel value="Number:"/>
+            <h:outputLabel value="#{productController.product.number}"/>            
+        </h:panelGrid>
+    </h:form>    
+</ui:define>
+
+<ui:define name="footer">
+    <hr />
+    <h:link value="Create an Order" outcome="newOrder.xhtml"/> |
+    <h:link value="Home Page" outcome="index.xhtml"/>
+</ui:define>
+
+</ui:composition>
+</html>
+

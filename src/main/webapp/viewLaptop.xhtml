@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+        
+<ui:composition template="ui.xhtml">
+    <f:metadata>
+        <f:viewParam name="id" value="#{laptopController.laptop.id}"/>
+        <f:viewAction action="#{laptopController.getLaptopById}"/>
+    </f:metadata>
+    
+<ui:define name="title">Laptop Details</ui:define>
+
+<ui:define name="header">Requested laptop: “#{laptopController.laptop.model}”!</ui:define>
+
+<ui:define name="content">    
+    <h2>Detail Informations</h2>
+    <h:form>
+        <h:panelGrid columns="2">
+            <h:outputLabel value="ID:"/>
+            <h:outputLabel value="#{laptopController.laptop.id}"/>
+
+            <h:outputLabel value="Brand:"/>
+            <h:outputLabel value="#{laptopController.laptop.brand}"/>
+            
+            <h:outputLabel value="Model:"/>
+            <h:outputLabel value="#{laptopController.laptop.model}"/>
+
+            <h:outputLabel value="Size of display:"/>
+            <h:outputLabel value="#{laptopController.laptop.sizeOfDisplay}"/>
+            
+            <h:outputLabel value="Weight:"/>
+            <h:outputLabel value="#{laptopController.laptop.weight}"/> 
+            
+            <h:outputLabel value="Operating system:"/>
+            <h:outputLabel value="#{laptopController.laptop.os}"/>
+
+            <h:outputLabel value="Camera:"/>
+            <h:outputLabel value="#{laptopController.laptop.camera}"/>
+            
+            <h:outputLabel value="Wifi:"/>
+            <h:outputLabel value="#{laptopController.laptop.wifi}"/>
+
+            <h:outputLabel value="Price:"/>
+            <h:outputLabel value="$#{laptopController.laptop.price}"/>
+            
+            <h:outputLabel value="Number:"/>
+            <h:outputLabel value="#{laptopController.laptop.number}"/>              
+            
+            <h:outputLabel value="Network interface:"/>
+            <h:outputLabel value="#{laptopController.laptop.networkInterface}"/>
+            
+            <h:outputLabel value="Hard Drive:"/>
+            <h:outputLabel value="#{laptopController.laptop.hardDrive}"/>
+
+            <h:outputLabel value="Optical Drive:"/>
+            <h:outputLabel value="#{laptopController.laptop.opticalDrive}"/>                        
+        </h:panelGrid>
+    </h:form>     
+</ui:define>
+
+<ui:define name="footer">
+    <hr />
+    <h:link value="Create a Laptop" outcome="newLaptop.xhtml"/> |
+    <h:link value="List of Laptops" outcome="listOfLaptop.xhtml"/> |
+    <h:link value="Search a Laptop" outcome="searchLaptop.xhtml"/> |
+    <h:link value="Home Page" outcome="index.xhtml"/>
+</ui:define>
+
+</ui:composition>
+</html>
+

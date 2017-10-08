@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <ui:composition template="ui.xhtml">
+    
+<ui:define name="title">Home Page</ui:define>
+
+<ui:define name="header"><u><i>E-Gadget Store</i></u></ui:define>
+
+<ui:define name="content">    
+    <h2 colour="blue">Laptops And Smart Phones Menu</h2>
+    <h:link value="Create a Laptop" outcome="newLaptop.xhtml"/> |||||
+    <h:link value="List of Laptops" outcome="listOfLaptop.xhtml"/> |||||
+    <h:link value="Search a Laptop" outcome="searchLaptop.xhtml"/>
+    <br />
+    <h:link value="Create a Smartphone" outcome="newSmartPhone.xhtml"/> |||||
+    <h:link value="List of Smartphones" outcome="listOfSmartPhone.xhtml"/> |||||
+    <h:link value="Search Smartphone" outcome="searchSmartphone.xhtml"/>
+    <br />
+    <h2 colour="green">Customer Menu</h2>
+    <h:link value="Create a Customer" outcome="newCustomer.xhtml"/> |||||
+    <h:link value="List of Customers" outcome="listOfCustomer.xhtml"/> |||||
+    <h:link value="Search for a Customer" outcome="searchCustomer.xhtml"/>
+    <br />
+    <h2 colour="red">Order Menu</h2>
+    <h:link value="Create an Order" outcome="newOrder.xhtml"/> |||||
+    <h:link value="List of Orders" outcome="listOfOrders.xhtml"/> |||||
+    <h:link value="Search for an Order" outcome="searchOrder.xhtml"/>
+    <br />
+</ui:define>
+
+<ui:define name="footer">
+    <hr />
+</ui:define>
+
+</ui:composition>    
+</html>
+

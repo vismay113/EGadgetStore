@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="ui.xhtml">
+
+<ui:define name="title">New Order</ui:define>
+
+<ui:define name="header">Create New Order</ui:define>
+
+<ui:define name="content">    
+    <h:form>
+        <h:panelGrid columns="2">
+            <h:outputLabel value="Customer:" for="customer"/>
+            <h:selectOneMenu id="customer" value="#{orderController.customerId}">
+                <f:selectItems value="#{orderController.getCustomerList()}" var="customer" itemLabel="#{customer.name}" itemValue="#{customer.id}" />
+            </h:selectOneMenu>
+        
+            <h:outputLabel value="Product:" for="product"/>
+            <h:selectOneMenu id="product" value="#{orderController.productId}">
+                <f:selectItems value="#{orderController.getProductList()}" var="product" itemLabel="#{product.model}" itemValue="#{product.id}"/>
+            </h:selectOneMenu>
+        
+            <h:outputLabel value="Quantity:" for="quantity"/>
+            <h:inputText value="#corderController.corder.quantity}" id="quantity" required="true"
+                         requiredMessage="Please enter the product quantity"/>
+        </h:panelGrid>
+        <br />
+        <h:commandButton value="Create Order" action="#{orderController.doCreate}"/>
+    </h:form>
+</ui:define>
+
+<ui:define name="footer">
+    <hr />
+    <h:link value="List of Orders" outcome="listOfOrders.xhtml"/> |
+    <h:link value="Search an Order" outcome="searchOrder.xhtml"/> |
+    <h:link value="Home Page" outcome="index.xhtml"/>
+</ui:define>
+
+</ui:composition>
+</html>
+

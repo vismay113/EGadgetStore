@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<ui:composition template="ui.xhtml">
+
+<ui:define name="title">New Smart Phone</ui:define>
+
+<ui:define name="header">Create New Smart Phone</ui:define>
+
+<ui:define name="content">    
+    <h:form>
+        <h:panelGrid columns="2">
+            <h:outputLabel value="Brand:" for="brand"/>
+            <h:inputText value="#{smartphoneController.smartphone.brand}" id="brand" required="true"
+                        requiredMessage="Please enter the smart phone brand"/>
+
+            <h:outputLabel value="Model:" for="model"/>
+            <h:inputText value="#{smartphoneController.smartphone.model}" id="model" required="true"
+                        requiredMessage="Please enter the smart phone model"/>
+
+            <h:outputLabel value="Size Of Display:" for="sizeOfDisplay"/>
+            <h:inputText value="#{smartphoneController.smartphone.sizeOfDisplay}" id="sizeOfDisplay" required="true"
+                        requiredMessage="Please enter the smart phone size of display"/>
+            
+            <h:outputLabel value="Weight:" for="weight"/>
+            <h:inputText value="#{smartphoneController.smartphone.weight}" id="weight" required="true"
+                        requiredMessage="Please enter the smart phone weight"/>
+            
+            <h:outputLabel value="Operating System:" for="os"/>
+            <h:inputText value="#{smartphoneController.smartphone.os}" id="os" required="true"
+                        requiredMessage="Please enter the smart phone operating system"/>
+
+            <h:outputLabel value="Camera:" for="camera"/>
+            <h:inputText value="#{smartphoneController.smartphone.camera}" id="camera" required="true"
+                        requiredMessage="Please enter the smart phone camera"/>
+
+            <h:outputLabel value="Wifi:" for="wifi"/>
+            <h:inputText value="#{smartphoneController.smartphone.wifi}" id="wifi" required="true"
+                        requiredMessage="Please enter the smart phone wifi"/>
+
+            <h:outputLabel value="Price:" for="price"/>
+            <h:inputText value="#{smartphoneController.smartphone.price}" id="price" required="true"
+                        requiredMessage="Please enter the smart phone price"/>             
+            
+            <h:outputLabel value="Type:" for="type"/>
+            <h:inputText value="#{smartphoneController.smartphone.type}" id="type" required="true"
+                        requiredMessage="Please enter the smart phone type"/>
+            
+            <h:outputLabel value="Number:" for="number"/>
+            <h:inputText value="#{smartphoneController.smartphone.number}" id="number" required="true"
+                        requiredMessage="Please enter the number of smart phone"/>            
+            
+            <h:outputLabel value="Cellular Connectivity:" for="cellularConnectivity"/>
+            <h:inputText value="#{smartphoneController.smartphone.cellularConnectivity}" id="cellularConnectivity" required="true"
+                        requiredMessage="Please enter the smart phone cellular connectivity"/>
+            
+            <h:outputLabel value="Location:" for="location"/>
+            <h:inputText value="#{smartphoneController.smartphone.location}" id="location" required="true"
+                        requiredMessage="Please enter the smart phone location"/>
+
+            <h:outputLabel value="Sim Card:" for="simCard"/>
+            <h:inputText value="#{smartphoneController.smartphone.simCard}" id="simCard" required="true"
+                        requiredMessage="Please enter the smart phone sim card"/>            
+        </h:panelGrid>
+        <br />
+        <h:commandButton value="Create Smartphone" action="#{smartphoneController.doCreate}"/>
+    </h:form>
+</ui:define>
+
+<ui:define name="footer">
+    <hr />
+    <h:link value="List of Smart Phones" outcome="listOfSmartPhone.xhtml"/> |
+    <h:link value="Search a Smart Phone" outcome="searchSmartphone.xhtml"/> |
+    <h:link value="Home Page" outcome="index.xhtml"/>
+</ui:define>
+
+</ui:composition>
+</html>
+

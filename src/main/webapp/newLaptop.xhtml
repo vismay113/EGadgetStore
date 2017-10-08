@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    
+<ui:composition template="ui.xhtml">
+
+<ui:define name="title">New Laptop</ui:define>
+
+<ui:define name="header">Create New Laptop</ui:define>
+
+<ui:define name="content">    
+    <h:form>
+        <h:panelGrid columns="2">
+            <h:outputLabel value="Brand:" for="brand"/>
+            <h:inputText value="#{laptopController.laptop.brand}" id="brand" required="true"
+                        requiredMessage="Please enter the laptop brand"/>
+
+            <h:outputLabel value="Model:" for="model"/>
+            <h:inputText value="#{laptopController.laptop.model}" id="model" required="true"
+                        requiredMessage="Please enter the laptop model"/>
+
+            <h:outputLabel value="Size Of Display:" for="sizeOfDisplay"/>
+            <h:inputText value="#{laptopController.laptop.sizeOfDisplay}" id="sizeOfDisplay" required="true"
+                        requiredMessage="Please enter the laptop size of display"/>
+            
+            <h:outputLabel value="Weight:" for="weight"/>
+            <h:inputText value="#{laptopController.laptop.weight}" id="weight" required="true"
+                        requiredMessage="Please enter the laptop weight"/>
+            
+            <h:outputLabel value="Operating System:" for="os"/>
+            <h:inputText value="#{laptopController.laptop.os}" id="os" required="true"
+                        requiredMessage="Please enter the laptop operating system"/>
+
+            <h:outputLabel value="Camera:" for="camera"/>
+            <h:inputText value="#{laptopController.laptop.camera}" id="camera" required="true"
+                        requiredMessage="Please enter the laptop camera"/>
+
+            <h:outputLabel value="Wifi:" for="wifi"/>
+            <h:inputText value="#{laptopController.laptop.wifi}" id="wifi" required="true"
+                        requiredMessage="Please enter the laptop wifi"/>
+            
+            <h:outputLabel value="Price:" for="price"/>
+            <h:inputText value="#{laptopController.laptop.price}" id="price" required="true"
+                        requiredMessage="Please enter the laptop price"/>            
+
+            <h:outputLabel value="Type:" for="type"/>
+            <h:inputText value="#{laptopController.laptop.type}" id="type" required="true"
+                        requiredMessage="Please enter the laptop type"/>
+            
+            <h:outputLabel value="Number:" for="number"/>
+            <h:inputText value="#{laptopController.laptop.number}" id="number" required="true"
+                        requiredMessage="Please enter the number of laptop"/>            
+            
+            <h:outputLabel value="Network Interface:" for="networkInterface"/>
+            <h:inputText value="#{laptopController.laptop.networkInterface}" id="networkInterface" required="true"
+                        requiredMessage="Please enter the laptop network interface"/>
+            
+            <h:outputLabel value="Hard Drive:" for="hardDrive"/>
+            <h:inputText value="#{laptopController.laptop.hardDrive}" id="hardDrive" required="true"
+                        requiredMessage="Please enter the laptop hard drive"/>
+
+            <h:outputLabel value="Optical Drive:" for="opticalDrive"/>
+            <h:inputText value="#{laptopController.laptop.opticalDrive}" id="opticalDrive" required="true"
+                        requiredMessage="Please enter the laptop optical drive"/>            
+        </h:panelGrid>
+        <br />
+        <h:commandButton value="Create Laptop" action="#{laptopController.doCreate}"/>
+    </h:form>
+</ui:define>
+
+<ui:define name="footer">
+    <hr />
+    <h:link value="List of Laptops" outcome="listOfLaptop.xhtml"/> |
+    <h:link value="Search a Laptop" outcome="searchLaptop.xhtml"/> |
+    <h:link value="Home Page" outcome="index.xhtml"/>
+</ui:define>
+
+</ui:composition>
+</html>
+

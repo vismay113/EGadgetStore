@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+        
+<ui:composition template="ui.xhtml">
+    <f:metadata>
+        <f:viewParam name="id" value="#{orderController.order.id}"/>
+        <f:viewAction action="#{orderController.getOrderById}"/>
+    </f:metadata>
+    
+<ui:define name="title">Order Details</ui:define>
+
+<ui:define name="header">Requested order: “#{orderController.order.customer.name}”---“#{orderController.order.product.model}”!</ui:define>
+
+<ui:define name="content">    
+    <h2>Detail Informations</h2>
+    <h:form>
+        <h:panelGrid columns="2">
+            <h:outputLabel value="ID:"/>
+            <h:outputLabel value="#{orderController.order.id}"/>
+
+            <h:outputLabel value="Customer:"/>
+            <h:outputLabel value="#{orderController.order.customer.name}"/>
+            
+            <h:outputLabel value="Product:"/>
+            <h:outputLabel value="#{orderController.order.product.model}"/>
+
+            <h:outputLabel value="Quantity:"/>
+            <h:outputLabel value="#{orderController.order.quantity}"/>
+            
+            <h:outputLabel value="Unit Price:"/>
+            <h:outputLabel value="$#{orderController.order.unitPrice}"/> 
+            
+            <h:outputLabel value="Total Price:"/>
+            <h:outputLabel value="$#{orderController.order.getTotalPrice()}"/>
+
+            <h:outputLabel value="Create Time:"/>
+            <h:outputLabel value="#{orderController.order.timeCreated}"/>                      
+        </h:panelGrid>
+    </h:form>    
+</ui:define>
+
+<ui:define name="footer">
+    <hr />
+    <h:link value="Create a new Order" outcome="newOrder.xhtml"/> |
+    <h:link value="List of Orders" outcome="listOfOrders.xhtml"/> |
+    <h:link value="Search an Order" outcome="searchOrder.xhtml"/> |
+    <h:link value="Home Page" outcome="index.xhtml"/>
+</ui:define>
+
+</ui:composition>
+</html>
+

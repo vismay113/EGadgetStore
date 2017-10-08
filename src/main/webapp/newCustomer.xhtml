@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<ui:composition template="ui.xhtml">
+
+<ui:define name="title">New Customer</ui:define>
+
+<ui:define name="header">Create New Customer</ui:define>
+
+<ui:define name="content">    
+    <h:form>
+        <h:panelGrid columns="2">
+            <h:outputLabel value="Name:" for="name"/>
+            <h:inputText value="#{customerController.customer.name}" id="name" required="true"
+                        requiredMessage="Please enter the customer name"/>
+
+            <h:outputLabel value="Address:" for="address"/>
+            <h:inputText value="#{customerController.customer.address}" id="address" required="true"
+                        requiredMessage="Please enter the customer address"/>
+
+            <h:outputLabel value="Phone Number:" for="phone"/>
+            <h:inputText value="#{customerController.customer.phone}" id="phone" required="true"
+                        requiredMessage="Please enter the customer phone number"/>
+            
+            <h:outputLabel value="Email Address:" for="email"/>
+            <h:inputText value="#{customerController.customer.email}" id="email" required="true"
+                        requiredMessage="Please enter the customer email address"/>
+        </h:panelGrid>
+        <br />
+        <h:commandButton value="Create Customer" action="#{customerController.doCreate}"/>
+    </h:form>
+</ui:define>
+
+<ui:define name="footer">
+    <hr />
+    <h:link value="List of Customers" outcome="listOfCustomer.xhtml"/> |
+    <h:link value="Search a customer" outcome="searchCustomer.xhtml"/> |
+    <h:link value="Home Page" outcome="index.xhtml"/>
+</ui:define>
+
+</ui:composition>
+</html>
+

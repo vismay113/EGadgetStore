@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+    
+<ui:composition template="ui.xhtml">
+    
+<ui:define name="title">List of Customer</ui:define>
+
+<ui:define name="header">All Customers</ui:define>
+
+<ui:define name="content">    
+    <c:choose>
+        <c:when test="#{fn:length(customerController.customerList) == 0}">
+            <p>There is no customer to display</p>
+        </c:when>
+        <c:otherwise>
+        <h:dataTable value="#{customerController.customerList}" var="c" border = "1">
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="ID"/>
+                </f:facet>
+                <h:outputText value="#{c.id}"/>
+            </h:column>            
+            
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Name"/>
+                </f:facet>
+                <h:outputText value="#{c.name}"/>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Address"/>
+                </f:facet>
+                <h:outputText value="#{c.address}"/>
+            </h:column>
+            
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Action"/>
+                </f:facet>
+		<h:form>
+                    <h:link value="View Details" outcome="viewCustomer.xhtml?id=#{c.id}"/>
+                </h:form>
+            </h:column>
+        </h:dataTable>
+        <p>Total customers: #{fn:length(customerController.customerList)}</p>
+        </c:otherwise>
+    </c:choose>
+</ui:define>
+
+<ui:define name="footer">
+    <hr />
+    <h:link value="Create a Customer" outcome="newCustomer.xhtml"/> |
+    <h:link value="List of Customers" outcome="listOfCustomer.xhtml"/> |
+    <h:link value="Home Page" outcome="index.xhtml"/>
+</ui:define>
+
+</ui:composition>
+</html>
+

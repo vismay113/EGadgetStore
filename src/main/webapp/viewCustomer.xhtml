@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+        
+<ui:composition template="ui.xhtml">
+    <f:metadata>
+        <f:viewParam name="id" value="#{customerController.customer.id}"/>
+        <f:viewAction action="#{customerController.getCusById}"/>
+    </f:metadata>
+    
+<ui:define name="title">Customer Details</ui:define>
+
+<ui:define name="header">Requested customer: “#{customerController.customer.name}”!</ui:define>
+
+<ui:define name="content">    
+    <h2>Detail Informations</h2>
+    <h:form>
+        <h:panelGrid columns="2">
+            <h:outputLabel value="ID:"/>
+            <h:outputLabel value="#{customerController.customer.id}"/>
+
+            <h:outputLabel value="NameD:"/>
+            <h:outputLabel value="#{customerController.customer.name}"/>
+            
+            <h:outputLabel value="Address:"/>
+            <h:outputLabel value="#{customerController.customer.address}"/>
+
+            <h:outputLabel value="Phone Number:"/>
+            <h:outputLabel value="#{customerController.customer.phone}"/>
+            
+            <h:outputLabel value="Email Address:"/>
+            <h:outputLabel value="#{customerController.customer.email}"/>            
+        </h:panelGrid>
+    </h:form>
+    <h2>Order Informations</h2>
+        <c:choose>
+            <c:when test="#{fn:length(customerController.orderList) == 0}">
+                <p>This customer has not create any order!</p>
+            </c:when>
+            <c:otherwise>
+            <h:dataTable value="#{customerController.orderList}" var="o" border = "1">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="ID"/>
+                    </f:facet>
+                    <h:outputText value="#{o.id}"/>
+                </h:column> 
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Customer"/>
+                    </f:facet>
+                    <h:outputText value="#{o.customer.name}"/>
+                </h:column>         
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Product"/>
+                    </f:facet>
+                    <h:outputText value="#{o.product.model}"/>
+                </h:column>         
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Quantity"/>
+                    </f:facet>
+                    <h:outputText value="#{o.quantity}"/>
+                </h:column>         
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Unit Price"/>
+                    </f:facet>
+                    <h:outputText value="$#{o.unitPrice}"/>
+                </h:column>         
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Total Price"/>
+                    </f:facet>
+                    <h:outputText value="$#{o.getTotalPrice()}"/>
+                </h:column>          
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Create Time"/>
+                    </f:facet>
+                    <h:outputText value="#{o.timeCreated}"/>
+                </h:column>                  
+            </h:dataTable>
+            </c:otherwise>
+        </c:choose>   
+</ui:define>
+
+<ui:define name="footer">
+    <hr />
+    <h:link value="Create a Customer" outcome="newCustomer.xhtml"/> |
+    <h:link value="List of Customers" outcome="listOfCustomer.xhtml"/> |
+    <h:link value="Search a customer" outcome="searchCustomer.xhtml"/> |
+    <h:link value="Home Page" outcome="index.xhtml"/>
+</ui:define>
+
+</ui:composition>
+</html>
+

@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    
+<ui:composition template="ui.xhtml">
+    
+<ui:define name="title">Search Smart Phone</ui:define>
+
+<ui:define name="header">Phone Search Wizard</ui:define>
+
+<ui:define name="content">    
+    <h:form>
+        <h:outputLabel value="Model: " />
+        <h:inputText value="#{smartphoneController.smodel}" id="smodel" required="true"
+                 requiredMessage="Please enter a smart phone model"/>
+        <br /><h:commandButton value="Search Smartphone" action="#{smartphoneController.getPhoneByModel}"/>
+    </h:form>
+</ui:define>
+
+<ui:define name="footer">
+    <hr />
+    <h:link value="Create a Smartphone" outcome="newSmartPhone.xhtml"/> |
+    <h:link value="List of Smartphones" outcome="listOfSmartPhone.xhtml"/> |
+    <h:link value="Home Page" outcome="index.xhtml"/>
+</ui:define>
+
+</ui:composition>
+</html>

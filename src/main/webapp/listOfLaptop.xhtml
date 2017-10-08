@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+    
+<ui:composition template="ui.xhtml">
+    
+<ui:define name="title">List of Laptop</ui:define>
+
+<ui:define name="header">All laptops</ui:define>
+
+<ui:define name="content">    
+    <c:choose>
+        <c:when test="#{fn:length(laptopController.laptopList) == 0}">
+            <p>There is no laptop to display</p>
+        </c:when>
+        <c:otherwise>
+        <h:dataTable value="#{laptopController.laptopList}" var="l" border = "1">
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="ID"/>
+                </f:facet>
+                <h:outputText value="#{l.id}"/>
+            </h:column>            
+            
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Brand"/>
+                </f:facet>
+                <h:outputText value="#{l.brand}"/>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Model"/>
+                </f:facet>
+                <h:outputText value="#{l.model}"/>
+            </h:column>
+            
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Action"/>
+                </f:facet>
+		<h:form>
+                    <h:link value="View Details" outcome="viewLaptop.xhtml?id=#{l.id}"/>
+                </h:form>
+            </h:column>
+        </h:dataTable>
+        <p>Total laptops: #{fn:length(laptopController.laptopList)}</p>
+        </c:otherwise>
+    </c:choose>
+</ui:define>
+
+<ui:define name="footer">
+    <hr />
+    <h:link value="Create a Laptop" outcome="newLaptop.xhtml"/> |
+    <h:link value="List of Laptops" outcome="listOfLaptop.xhtml"/> |
+    <h:link value="Home Page" outcome="index.xhtml"/>
+</ui:define>
+
+</ui:composition>
+</html>
+

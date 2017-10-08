@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+        
+<ui:composition template="ui.xhtml">
+    <f:metadata>
+        <f:viewParam name="id" value="#{smartphoneController.smartphone.id}"/>
+        <f:viewAction action="#{smartphoneController.getPhoneById}"/>
+    </f:metadata>
+    
+<ui:define name="title">Smart Phone Details</ui:define>
+
+<ui:define name="header">Requested Phone: “#{smartphoneController.smartphone.model}”!</ui:define>
+
+<ui:define name="content">    
+    <h2>Detail Informations</h2>
+    <h:form>
+        <h:panelGrid columns="2">
+            <h:outputLabel value="ID:"/>
+            <h:outputLabel value="#{smartphoneController.smartphone.id}"/>
+
+            <h:outputLabel value="Brand:"/>
+            <h:outputLabel value="#{smartphoneController.smartphone.brand}"/>
+            
+            <h:outputLabel value="Model:"/>
+            <h:outputLabel value="#{smartphoneController.smartphone.model}"/>
+
+            <h:outputLabel value="Size of display:"/>
+            <h:outputLabel value="#{smartphoneController.smartphone.sizeOfDisplay}"/>
+            
+            <h:outputLabel value="Weight:"/>
+            <h:outputLabel value="#{smartphoneController.smartphone.weight}"/> 
+            
+            <h:outputLabel value="Operating system:"/>
+            <h:outputLabel value="#{smartphoneController.smartphone.os}"/>
+
+            <h:outputLabel value="Camera:"/>
+            <h:outputLabel value="#{smartphoneController.smartphone.camera}"/>
+            
+            <h:outputLabel value="Wifi:"/>
+            <h:outputLabel value="#{smartphoneController.smartphone.wifi}"/>
+
+            <h:outputLabel value="Price:"/>
+            <h:outputLabel value="$#{smartphoneController.smartphone.price}"/>
+            
+            <h:outputLabel value="Number:"/>
+            <h:outputLabel value="#{smartphoneController.smartphone.number}"/>            
+            
+            <h:outputLabel value="Cellular connectivity:"/>
+            <h:outputLabel value="#{smartphoneController.smartphone.cellularConnectivity}"/>
+            
+            <h:outputLabel value="Location:"/>
+            <h:outputLabel value="#{smartphoneController.smartphone.location}"/>
+
+            <h:outputLabel value="Sim card:"/>
+            <h:outputLabel value="#{smartphoneController.smartphone.simCard}"/>                          
+        </h:panelGrid>
+    </h:form>     
+</ui:define>
+
+<ui:define name="footer">
+    <hr />
+    <h:link value="Create a Smart Phone" outcome="newSmartPhone.xhtml"/> |
+    <h:link value="List of Smart Phones" outcome="listOfSmartPhone.xhtml"/> |
+    <h:link value="Search a Smart Phone" outcome="searchSmartphone.xhtml"/> |
+    <h:link value="Home Page" outcome="index.xhtml"/>
+</ui:define>
+
+</ui:composition>
+</html>
+
